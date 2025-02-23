@@ -15,8 +15,8 @@ This extension is designed to assist users in writing and implementing rulesets 
 | element1      | True     | Float                                               |
 | element2      | False    | Float                                               |
 | user          | True     | String                                              |
-| password      | True     | Password                  |
-| hostname      | True     | String and DefaultValue / Prefill: $HOSTADDRESS$    |
+| password      | True     | Password                                            |
+| hostname      | True     | String and DefaultValue / Prefill: '$HOSTADDRESS$'  |
 | port          | False    | Integer and validators                              |
 | protocol      | False    | CascadingSingleChoice, CascadingSingleChoiceElement, FixedValue |
 
@@ -30,4 +30,5 @@ This extension is designed to assist users in writing and implementing rulesets 
 ![image](https://github.com/user-attachments/assets/3b37481e-5fb0-4c13-afe9-1fbd71293ac2)
 
 
-![image](https://github.com/user-attachments/assets/aa04876c-a402-4633-9c4c-63fdd272df82)
+![image](https://github.com/user-attachments/assets/a3e80a3e-024c-4965-9f5a-64422c7b03f4)
+
