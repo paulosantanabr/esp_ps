@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from cmk.rulesets.v1.form_specs import CascadingSingleChoice, CascadingSingleChoiceElement, DefaultValue, Dictionary, DictElement, FixedValue, Float, Integer, migrate_to_password, String, Password, validators
+from cmk.rulesets.v1.form_specs import CascadingSingleChoice, CascadingSingleChoiceElement, DefaultValue, Dictionary, DictElement, FixedValue, Float, Integer, String, Password, validators
 from cmk.rulesets.v1.rule_specs import SpecialAgent, Topic, Help, Title
 def _formspec():
     return Dictionary(
@@ -28,14 +28,13 @@ def _formspec():
             "password": DictElement(
                 required=True,
                 parameter_form=Password(
-                    title=Title("Variable Name: password / Required: True / cmk.rulesets.v1.form_specs: Password and migrate_to_password"),
-                    migrate=migrate_to_password,
+                    title=Title("Variable Name: password / Required: True / cmk.rulesets.v1.form_specs: Password"),
                 ),
 			),
             "hostname": DictElement(
 				required=True,
                 parameter_form=String(
-                    title=Title("Variable Name: hostname / Required: True / Prefill: $HOSTADDRESS / cmk.rulesets.v1.form_specs: String and DefaultValue"),
+                    title=Title("Variable Name: hostname / Required: True / Prefill: $HOSTADDRESS$ / cmk.rulesets.v1.form_specs: String and DefaultValue"),
                     help_text=Help('You can specify a hostname or IP address different from IP address of the host as configured in your host properties.'),
                     prefill=DefaultValue("$HOSTADDRESS$"),
                 ),
