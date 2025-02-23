@@ -15,8 +15,8 @@ This extension is designed to assist users in writing and implementing rulesets 
 | element1      | True     | Float                                               |
 | element2      | False    | Float                                               |
 | user          | True     | String                                              |
-| password      | True     | Password and migrate_to_password                    |
-| hostname      | True     | String and DefaultValue / Prefill: $HOSTADDRESS     |
+| password      | True     | Password                  |
+| hostname      | True     | String and DefaultValue / Prefill: $HOSTADDRESS$    |
 | port          | False    | Integer and validators                              |
 | protocol      | False    | CascadingSingleChoice, CascadingSingleChoiceElement, FixedValue |
 
