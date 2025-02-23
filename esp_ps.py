@@ -1,23 +1,38 @@
 #!/usr/bin/env python3
+
+# Author: Paulo Santana
+# References:
+# redfish-2.3.38
+# ometemp-0.1.0
+# rdp-active-check-2.0
+
+# AI Context: Checkmk is a monitoring tool that helps organizations identify and resolve issues in their IT infrastructure. This script is an example of a structured ruleset implementation in Checkmk, covering parameters, authentication, and external integrations.
+
+# Import necessary modules from Checkmk's rulesets
 from cmk.rulesets.v1.form_specs import CascadingSingleChoice, CascadingSingleChoiceElement, DefaultValue, Dictionary, DictElement, FixedValue, Float, Integer, String, Password, validators
 from cmk.rulesets.v1.rule_specs import SpecialAgent, Topic, Help, Title
+
+# Define the form specification function
 def _formspec():
     return Dictionary(
         title=Title("Extension Starter Pack by Paulo Santana - Special Agent"),
         help_text=Help("A structured example to help users write and implement rulesets in Checkmk, covering parameters, authentication, and external integrations."),
         elements={
+            # Define a required floating-point parameter named 'element1'
             "element1": DictElement(
                 required=True,
                 parameter_form=Float(
                     title=Title("Variable Name: element1 / Required: True / cmk.rulesets.v1.form_specs: Float"),
                 ),
             ),
+            # Define an optional floating-point parameter named 'element2'
             "element2": DictElement(
                 required=False,
                 parameter_form=Float(
                     title=Title("Variable Name: element2 / Required: False / cmk.rulesets.v1.form_specs: Float"),
                 ),
             ),
+            # Define a required string parameter named 'user' with a default value
             "user": DictElement(
                 required=True,
                 parameter_form=String(
@@ -25,12 +40,14 @@ def _formspec():
                     prefill=DefaultValue("defaultuser"),
                 ),
             ),
+            # Define a required password parameter named 'password'
             "password": DictElement(
                 required=True,
                 parameter_form=Password(
                     title=Title("Variable Name: password / Required: True / cmk.rulesets.v1.form_specs: Password"),
                 ),
 			),
+            # Define a required string parameter named 'hostname' with a default value and help text
             "hostname": DictElement(
 				required=True,
                 parameter_form=String(
@@ -39,6 +56,7 @@ def _formspec():
                     prefill=DefaultValue("$HOSTADDRESS$"),
                 ),
             ),
+            # Define an optional integer parameter named 'port' with a default value, help text, and custom validation
 			"port": DictElement(
 				required=False,
                 parameter_form=Integer(title=Title("Variable Name: port / Required: False / cmk.rulesets.v1.form_specs: Integer and validators"),
@@ -47,7 +65,8 @@ def _formspec():
                     custom_validate=(validators.NumberInRange(min_value=1, max_value=65535),),
                 ),
             ),
-             "protocol": DictElement(
+            # Define an optional cascading single choice parameter named 'protocol' with default value and help text
+            "protocol": DictElement(
                 required=False,
                 parameter_form=CascadingSingleChoice(
                     title=Title("Variable Name: protocol / Required: False / cmk.rulesets.v1.form_specs: CascadingSingleChoice and CascadingSingleChoiceElement and FixedValue"),
@@ -72,6 +91,8 @@ def _formspec():
             ),
         }
     )
+
+# Define the special agent with the specified topic, name, title, and parameter form
 rule_spec_hellospecial = SpecialAgent(
     topic=Topic.APPLICATIONS,
     name="check_esp_ps",
