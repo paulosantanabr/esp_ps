@@ -48,14 +48,9 @@ Please read the following files to understand the context and assist in creating
 
 
 ## Screenshots
-
-![image](https://github.com/user-attachments/assets/fdc1a5f1-435b-4a6c-af8a-36a22c5761f4)
-
-
+Ruleset:
+![image](https://github.com/user-attachments/assets/dec8e1ff-b050-4076-ab1c-9eb73cf9e84e)
 
 
-![image](https://github.com/user-attachments/assets/3b37481e-5fb0-4c13-afe9-1fbd71293ac2)
-
-
-![image](https://github.com/user-attachments/assets/a3e80a3e-024c-4965-9f5a-64422c7b03f4)
-
+AI Generated Code:
+![image](https://github.com/user-attachments/assets/5300ecc8-497a-4bd4-bade-50c260a9e9f2)
