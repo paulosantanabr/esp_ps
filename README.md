@@ -1,7 +1,15 @@
 # extensionstarterpackbypaulosantana
 Extension Starter Pack by Paulo Santana. A toolkit for developing custom extensions.
 
-This MKP provides a template for creating Checkmk special agent rulesets, demonstrating various form elements and options. Use it as an example for your own custom rulesets.  Created by Paulo Santana.
+This extension is designed to assist users in writing and implementing rulesets in Checkmk. It provides a structured example of a Special Agent, showcasing best practices for defining parameters, handling authentication, and integrating with external services. As part of the Extension Starter Pack by Paulo Santana, this tool serves as a foundation for those looking to create custom monitoring solutions within Checkmk. 
+Ruleset options available:
+Variable Name: element1 / Required: True / cmk.rulesets.v1.form_specs: Float
+Variable Name: element2 / Required: False / cmk.rulesets.v1.form_specs: Float
+Variable Name: user / Required: True / cmk.rulesets.v1.form_specs: String
+Variable Name: password / Required: True / cmk.rulesets.v1.form_specs: Password and migrate_to_password
+Variable Name: hostname / Required: True / Prefill: $HOSTADDRESS / cmk.rulesets.v1.form_specs: String and DefaultValue
+Variable Name: port / Required: False / cmk.rulesets.v1.form_specs: Integer and validators
+Variable Name: protocol / Required: False / cmk.rulesets.v1.form_specs: CascadingSingleChoice and CascadingSingleChoiceElement and FixedValue
 
 
 
