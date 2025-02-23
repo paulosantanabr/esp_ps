@@ -1,0 +1,67 @@
+## Example Interaction
+
+**User Requirement**: The user wants to create a new ruleset that includes a parameter asking "Do you want to use the new API?" with options "Yes" and "No" (defaulting to "Yes").
+
+**Specialist Response**:
+1. **Understanding the Requirement**:
+   - The specialist confirms the requirement and asks if there are any additional parameters or specific configurations needed.
+
+2. **Providing Recommendations**:
+   - The specialist recommends using a `CascadingSingleChoice` element to provide the "Yes" and "No" options, with "Yes" as the default value.
+
+3. **Generating Code**:
+   - The specialist generates the following code to create the new ruleset:
+
+```python
+# filepath: /c:/Users/adria/OneDrive/Documentos/Visual Studio Code/esp_ps/esp_ps/new_ruleset.py
+#!/usr/bin/env python3
+
+# Author: Paulo Santana
+# References:
+# redfish-2.3.38
+# ometemp-0.1.0
+# rdp-active-check-2.0
+
+# AI Context: Checkmk is a monitoring tool that helps organizations identify and resolve issues in their IT infrastructure. 
+# This script is an example of a structured ruleset implementation in Checkmk, covering parameters, authentication, and external integrations.
+
+# Import necessary modules from Checkmk's rulesets
+from cmk.rulesets.v1.form_specs import CascadingSingleChoice, CascadingSingleChoiceElement, DefaultValue, Dictionary, DictElement, FixedValue
+from cmk.rulesets.v1.rule_specs import SpecialAgent, Topic, Help, Title
+
+# Define the form specification function for the new ruleset
+def _new_formspec():
+    return Dictionary(
+        title=Title("New Ruleset with API Choice"),
+        help_text=Help("A structured example to help users write and implement rulesets in Checkmk, covering parameters, authentication, and external integrations."),
+        elements={
+            # Define a new cascading single choice parameter named 'use_new_api' with default value 'Yes'
+            "use_new_api": DictElement(
+                required=True,
+                parameter_form=CascadingSingleChoice(
+                    title=Title("Do you want to use the new API?"),
+                    prefill=DefaultValue("yes"),
+                    elements=[
+                        CascadingSingleChoiceElement(
+                            name="yes",
+                            title=Title("Yes"),
+                            parameter_form=FixedValue(value=None),
+                        ),
+                        CascadingSingleChoiceElement(
+                            name="no",
+                            title=Title("No"),
+                            parameter_form=FixedValue(value=None),
+                        ),
+                    ],
+                ),
+            ),
+        }
+    )
+
+# Define the new special agent with the specified topic, name, title, and parameter form
+rule_spec_new_ruleset = SpecialAgent(
+    topic=Topic.APPLICATIONS,
+    name="check_new_ruleset",
+    title=Title("New Ruleset with API Choice"),
+    parameter_form=_new_formspec
+)
