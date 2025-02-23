@@ -41,7 +41,7 @@ To use the AI assistant, you need to load the context from the `esp_ps.py` file 
 Please read the following files to understand the context and assist in creating new rulesets:
 1. [esp_ps.py](./esp_ps/esp_ps.py)
 2. [persona.ai](./AI/persona.ai)
-
+```plaintext
 
 
 
