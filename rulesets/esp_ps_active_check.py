@@ -18,6 +18,13 @@ def _formspec():
         title=Title("Extension Starter Pack by Paulo Santana - Active Check"),
         help_text=Help("A structured example to help users write and implement rulesets in Checkmk, covering parameters, authentication, and external integrations."),
         elements={
+            "service_description": DictElement(
+                required=True,
+                parameter_form=String(
+                    title=Title("Service Name"),
+                    prefill=DefaultValue("Extension Starter Pack by Paulo Santana - Active Check"),
+                ),
+            ),
             # Define a required floating-point parameter named 'element1'
             "element1": DictElement(
                 required=True,
@@ -95,7 +102,7 @@ def _formspec():
 # Define the special agent with the specified topic, name, title, and parameter form
 rule_spec_esp_ps_active_check = ActiveCheck(
     topic=Topic.APPLICATIONS,
-    name="check_esp_ps_active_check",
+    name="esp_ps_active_check",
     title=Title("Extension Starter Pack by Paulo Santana - ActiveCheck"),
     help_text=Help("A structured example to help users write and implement rulesets in Checkmk, covering parameters, authentication, and external integrations."),
     parameter_form=_formspec
