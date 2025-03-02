@@ -12,7 +12,7 @@ class EspPsParams(BaseModel):
     hostname: str | None = None
     port: int | None = None
     user: str | None = None
-    password: str | None = None
+    password: Secret | None = None
     protocol: str | None = None
     element1: float | None = None
     element2: float | None = None
