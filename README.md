@@ -98,4 +98,13 @@ server_side_calls/esp_ps_active_check.py
 - Added HostConfig, Secret in cmk.server_side_calls.v1 
 - Changed password from str to Secret inside class EspPsParams
 
+0.1.4
+server_side_calls/esp_ps_active_check.py
+- Added HostConfig, Secret in cmk.server_side_calls.v1 
+- Changed password from str to Secret inside class EspPsParams
 
+0.1.5
+libexec/esp_ps_active_check_minimal
+server_side_calls/esp_ps_active_check_minimal.py
+rulesets/esp_ps_active_check_minimal.py
+- Added minimal pack which is the minimal active checkmk extension possible, which reads the service name and initial status.
