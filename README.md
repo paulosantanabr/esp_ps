@@ -12,6 +12,15 @@ Paulo Santana
 ## Overview
 This extension is designed to assist users in writing and implementing rulesets in Checkmk. It provides a structured example of a Special Agent, showcasing best practices for defining parameters, handling authentication, and integrating with external services. As part of the Extension Starter Pack by Paulo Santana, this tool serves as a foundation for those looking to create custom monitoring solutions within Checkmk.
 
+## Ruleset Name: Extension Starter Pack - ActiveCheck - Minimal
+Using this ruleset you will be able to deploy a basic extension using an active check which will need the mandatory field Service Name and Initial State which is optional. This is the starting point when creating extensions and I reccomend using it to start. 
+
+## Ruleset Name: Extension Starter Pack by Paulo Santana - ActiveCheck
+Using this ruleset you will be able to evaluate different types of fields and values. The active check will print all values in use. It's useful because it contains several fields that would likely be available in a real extension. 
+
+## Ruleset Name: Extension Starter Pack by Paulo Santana - Special Agent
+Work in Progress
+
 ## Features
 - **Structured Example**: Provides a clear example of a Special Agent.
 - **Best Practices**: Demonstrates best practices for defining parameters and handling authentication.
@@ -21,6 +30,7 @@ This extension is designed to assist users in writing and implementing rulesets 
 ## Ruleset Options
 | Variable Name | Required | cmk.rulesets.v1.form_specs                          |
 |---------------|----------|-----------------------------------------------------|
+| service_description | True     | String                                               |
 | element1      | True     | Float                                               |
 | element2      | False    | Float                                               |
 | user          | True     | String                                              |
