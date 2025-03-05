@@ -15,6 +15,9 @@ This extension is designed to assist users in writing and implementing rulesets 
 ## Ruleset Name: Extension Starter Pack - ActiveCheck - Minimal
 Using this ruleset you will be able to deploy a basic extension using an active check which will need the mandatory field Service Name and Initial State which is optional. This is the starting point when creating extensions and I reccomend using it to start. 
 
+![image](https://github.com/user-attachments/assets/9e01cfef-d8fc-4bae-811a-c5c272d6564f)
+
+
 ## Ruleset Name: Extension Starter Pack by Paulo Santana - ActiveCheck
 Using this ruleset you will be able to evaluate different types of fields and values. The active check will print all values in use. It's useful because it contains several fields that would likely be available in a real extension. 
 
