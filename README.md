@@ -104,7 +104,7 @@ server_side_calls/esp_ps_active_check.py
 - Changed password from str to Secret inside class EspPsParams
 
 0.1.5
-libexec/esp_ps_active_check_minimal
-server_side_calls/esp_ps_active_check_minimal.py
-rulesets/esp_ps_active_check_minimal.py
+libexec/esp_ps_active_check_minimal 
+server_side_calls/esp_ps_active_check_minimal.py 
+rulesets/esp_ps_active_check_minimal.py 
 - Added minimal pack which is the minimal active checkmk extension possible, which reads the service name and initial status.
