@@ -121,3 +121,8 @@ libexec/esp_ps_active_check_minimal
 server_side_calls/esp_ps_active_check_minimal.py 
 rulesets/esp_ps_active_check_minimal.py 
 - Added minimal pack which is the minimal active checkmk extension possible, which reads the service name and initial status.
+
+0.1.6
+- A dashboard named **"Extension Starter Pack - ActiveCheck - Minimal"**  
+has been added under the **Applications** section.  
+It is available when selecting **Show More**.
