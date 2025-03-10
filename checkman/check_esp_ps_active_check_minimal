@@ -1,0 +1,47 @@
+title: Extension Starter Pack - Active Check - Minimal
+agents: active
+catalog: generic
+license: GPL-3.0
+distribution: Checkmk Exchange
+description:
+ This active check monitors a specified service's state based on provided parameters.
+
+ It prints the service name along with its state and sets an appropriate exit code based on the state.
+
+ The check does not rely on Checkmk agents but instead runs as an active check.
+
+Monitored Aspects:
+
+ Takes in a state parameter (OK, WARN, CRIT, UNK).
+
+ Accepts a servicename parameter to label the monitored service.
+
+ Outputs a formatted string containing the service name and its status.
+
+ Returns the corresponding exit codes:
+
+ OK (0), WARN (1), CRIT (2), UNK (3).
+
+Conditions for State:
+
+ The state must be provided as one of the expected values (OK, WARN, CRIT, UNK).
+
+ If parameters are missing, default values are used.
+
+Prerequisites:
+
+ No additional agent plug-ins are required.
+
+ Ensure the script is executable and accessible in the configured monitoring environment.
+
+item:
+ Not applicable (this check does not use an item).
+
+inventory:
+ The check does not perform automatic service discovery. It must be manually added as an active check within Checkmk.
+
+usage:
+ This check can be used by adding it as a custom active check in Checkmk and passing the appropriate parameters.
+
+discovery:
+ One service is created for each project id in cost data.
