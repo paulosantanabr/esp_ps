@@ -126,3 +126,6 @@ rulesets/esp_ps_active_check_minimal.py
 - A dashboard named **"Extension Starter Pack - ActiveCheck - Minimal"**  
 has been added under the **Applications** section.  
 It is available when selecting **Show More**.
+
+0.1.7
+- A manual page was added to  **"Extension Starter Pack - ActiveCheck - Minimal"** .
