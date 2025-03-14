@@ -129,3 +129,6 @@ It is available when selecting **Show More**.
 
 0.1.7
 - A manual page was added to  **"Extension Starter Pack - ActiveCheck - Minimal"** .
+
+0.1.8
+- Include ruleset related to  **"Extension Starter Pack - ActiveCheck - Authentication"** .
