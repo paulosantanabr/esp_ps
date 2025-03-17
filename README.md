@@ -131,4 +131,4 @@ It is available when selecting **Show More**.
 - A manual page was added to  **"Extension Starter Pack - ActiveCheck - Minimal"** .
 
 0.1.8
-- Include ruleset related to  **"Extension Starter Pack - ActiveCheck - Authentication"** .
+- Include components related to  **"Extension Starter Pack - ActiveCheck - Authentication"** containing ruleset, server_side_calls, libexec and checkman.

@@ -23,12 +23,12 @@ def _formspec():
                 parameter_form=String(
                     title=Title("Service Name"),
                     help_text=Help("Define the name. Any value is allowed in here. Variable Name: service_description \ required=True \ parameter_form=String \ prefill=DefaultValue(Extension Starter Pack - Active Check - Minimal)"),
-                    prefill=DefaultValue("Extension Starter Pack by Paulo Santana - Active Check - Authentication"),
+                    prefill=DefaultValue("Extension Starter Pack - Active Check - Authentication"),
                 ),
             ),
           # Define a required string parameter named 'user' with a default value
             "user": DictElement(
-                required=True,
+                required=False,
                 parameter_form=String(
                     title=Title("Username"),
                     help_text=Help("Define the username. Variable Name: user \ Required: True \ cmk.rulesets.v1.form_specs: String"),
@@ -37,7 +37,7 @@ def _formspec():
             ),
             # Define a required password parameter named 'password'
             "password": DictElement(
-                required=True,
+                required=False,
                 parameter_form=Password(
                     title=Title("Password"),
                     help_text=Help("Define the password. Variable Name: password \ Required: True \ cmk.rulesets.v1.form_specs: Password"),
