@@ -1,29 +1,72 @@
-#!/bin/bash
-echo 'Custom Metrics: brown_dogs, green_cats, blue_birds, red_fishes and yellow_ducks | brown_dogs=40;45;60 green_cats=28;35;50 blue_birds=12;20;40 red_fishes=18;25;45 yellow_ducks=33;40;55
-===========================
-Metric Name: brown_dogs
-Value: 4 (4 Brown Dogs)
-Warning: 5
-Critical: 10
-===========================
-Metric Name: green_cats
-Value: 7 (7 Green Cats)
-Warning: 10
-Critical: 15
-===========================
-Metric Name: blue_birds
-Value: 3 (3 Blue Birds)
-Warning: 6
-Critical: 12
-===========================
-Metric Name: red_fishes
-Value: 5 (5 Red Fishes)
-Warning: 8
-Critical: 14
-===========================
-Metric Name: yellow_ducks
-Value: 6 (6 Yellow Ducks)
-Warning: 9
-Critical: 13
-===========================
-Active Check Location: $OMD_ROOT/local/lib/python3/cmk_addons/plugins/esp_ps/libexec/check_esp_ps_active_check_custom_metrics'
+#!/usr/bin/env python3
+# Author: Paulo Santana
+# Description:
+# This script is designed for use as an active check in Checkmk.
+# It supports custom metrics with optional arguments for value, warning, and critical thresholds.
+# If no argument is provided for a metric, that metric will not be included in the output.
+
+import argparse
+
+# Function to parse a metric input string of the form "value,warn,crit"
+# Returns a dictionary with the parsed values
+def parse_metric_input(input_str):
+    try:
+        value, warn, crit = map(int, input_str.split(","))
+        return {"value": value, "warn": warn, "crit": crit}
+    except Exception:
+        # Raise an error if the format is incorrect
+        raise argparse.ArgumentTypeError("Input must be in format value,warn,crit (e.g. 4,5,10)")
+
+def main():
+    # Set up the argument parser for each metric
+    parser = argparse.ArgumentParser(description="Custom Metrics Active Check with Thresholds")
+
+    # Add arguments for each possible metric
+    parser.add_argument("--brown_dogs", type=parse_metric_input, help="brown_dogs=value,warn,crit")
+    parser.add_argument("--green_cats", type=parse_metric_input, help="green_cats=value,warn,crit")
+    parser.add_argument("--blue_birds", type=parse_metric_input, help="blue_birds=value,warn,crit")
+    parser.add_argument("--red_fishes", type=parse_metric_input, help="red_fishes=value,warn,crit")
+    parser.add_argument("--yellow_ducks", type=parse_metric_input, help="yellow_ducks=value,warn,crit")
+
+    # Parse the arguments
+    args = parser.parse_args()
+
+    # Dictionary mapping metric names to their parsed values
+    metrics_info = {
+        "brown_dogs": args.brown_dogs,
+        "green_cats": args.green_cats,
+        "blue_birds": args.blue_birds,
+        "red_fishes": args.red_fishes,
+        "yellow_ducks": args.yellow_ducks,
+    }
+
+    # Prepare the performance data and list of metric names to display
+    perf_data = []
+    metric_names = []
+    for name, data in metrics_info.items():
+        if data:
+            metric_names.append(name.replace("_", " "))
+            perf_data.append(f"{name}={data['value']};{data['warn']};{data['crit']}")
+
+    # Print the performance data line used by Checkmk
+    if perf_data:
+        print(f"Custom Metrics: {', '.join(metric_names)} | {' '.join(perf_data)}")
+    else:
+        print("No metrics provided.")
+
+    # Print detailed breakdown for each metric provided
+    for name, data in metrics_info.items():
+        if data:
+            print("===========================")
+            print(f"Metric Name: {name}")
+            print(f"Value: {data['value']} ({data['value']} {name.replace('_', ' ').title()})")
+            print(f"Warning: {data['warn']}")
+            print(f"Critical: {data['crit']}")
+
+    # Inform the user where this active check script should be placed in Checkmk
+    print("===========================")
+    print("Active Check Location: $OMD_ROOT/local/lib/python3/cmk_addons/plugins/esp_ps/libexec/check_esp_ps_active_check_custom_metrics")
+
+# Entry point of the script
+if __name__ == "__main__":
+    main()
