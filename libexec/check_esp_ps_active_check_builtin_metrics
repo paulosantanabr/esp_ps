@@ -1,0 +1,27 @@
+#!/bin/bash
+echo 'Built-in Metrics: response_time, time_http_headers, time_http_body and response_size | response_time=0.067696216s;;;0;10 time_http_headers=0.066675912s;;;; time_http_body=0.001020304s;;;; response_size=2514B;;;0;
+===========================
+Metric Name: response_time
+Value type: (s) seconds
+Value: 0.067696216s (0.068 seconds)
+Warning: 0s
+Critical: 10s
+===========================
+Metric Name: time_http_headers
+Value type: (s) seconds
+Value: 0.067696216s (0.068 seconds)
+Warning: 0s
+Critical: 10s
+===========================
+Metric Name: time_http_body
+Value type: (s) seconds
+Value: 0.067696216s (0.068 seconds)
+Warning: 0s
+Critical: 10s
+===========================
+Metric Name: response_size
+Value Type: (B) Bytes
+Value: 2514B (2.46 KiB)
+Warning: 0
+Critical: 92014
+==========================='

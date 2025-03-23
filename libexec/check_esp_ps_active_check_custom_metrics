@@ -1,0 +1,29 @@
+#!/bin/bash
+echo 'Custom Metrics: brown_dogs, green_cats, blue_birds, red_fishes and yellow_ducks | brown_dogs=40;45;60 green_cats=28;35;50 blue_birds=12;20;40 red_fishes=18;25;45 yellow_ducks=33;40;55
+===========================
+Metric Name: brown_dogs
+Value: 4 (4 Brown Dogs)
+Warning: 5
+Critical: 10
+===========================
+Metric Name: green_cats
+Value: 7 (7 Green Cats)
+Warning: 10
+Critical: 15
+===========================
+Metric Name: blue_birds
+Value: 3 (3 Blue Birds)
+Warning: 6
+Critical: 12
+===========================
+Metric Name: red_fishes
+Value: 5 (5 Red Fishes)
+Warning: 8
+Critical: 14
+===========================
+Metric Name: yellow_ducks
+Value: 6 (6 Yellow Ducks)
+Warning: 9
+Critical: 13
+===========================
+Active Check Location: $OMD_ROOT/local/lib/python3/cmk_addons/plugins/esp_ps/libexec/check_esp_ps_active_check_custom_metrics'
