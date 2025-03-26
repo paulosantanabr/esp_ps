@@ -1,0 +1,29 @@
+title: Extension Starter Pack - Active Check - Custom Metrics
+agents: active
+license: GPL
+distribution: checkman
+description:
+  This active check is part of the Extension Starter Pack by Paulo Santana.
+  It allows you to define custom metrics via rule parameters and returns performance data for each.
+
+  Each metric parameter (e.g., brown_dog, green_cat) should be supplied in the format:
+    value;warning_threshold;critical_threshold
+
+  Example input:
+    brown_dog = 4;5;10
+
+  Only metrics with provided input will be included in the check result.
+
+item:
+  There is no item. This check is parameterized by metric values only.
+
+perfdata:
+  The check returns performance data for each metric provided, in the form:
+    metric_name=value;warn;crit
+
+examples:
+  Active check with metric arguments:
+    check_esp_ps_active_check_custom_metrics --brown_dogs "4;5;10" --green_cats "7;10;15"
+
+authors:
+  - Paulo Santana <https://github.com/paulosantanabr>
