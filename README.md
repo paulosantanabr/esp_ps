@@ -135,3 +135,6 @@ It is available when selecting **Show More**.
   
 0.1.9
 - Include components related to  **"Extension Starter Pack - ActiveCheck - Custom Metrics"** containing ruleset, graphing, server_side_calls, libexec and checkman.
+
+1.0.0
+- Added Perfometer into **"Extension Starter Pack - ActiveCheck - Custom Metrics"**
