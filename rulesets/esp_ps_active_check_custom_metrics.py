@@ -77,7 +77,7 @@ def _formspec():
 rule_spec_esp_ps_active_check_authentication = ActiveCheck(
     topic=Topic.APPLICATIONS,
     name="esp_ps_active_check_custom_metrics",
-    title=Title("Extension Starter Pack - ActiveCheck - Custom Metrics"),
+    title=Title("ESP - ActiveCheck - Custom Metrics"),
     help_text=Help("A structured example to help users write and implement rulesets in Checkmk, covering parameters, authentication, and external integrations."),
     parameter_form=_formspec
 )

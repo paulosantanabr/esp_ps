@@ -3,7 +3,7 @@
 
 from collections.abc import Iterator, Sequence
 from pydantic import BaseModel
-from cmk.server_side_calls.v1 import ActiveCheckCommand, ActiveCheckConfig
+from cmk.server_side_calls.v1 import ActiveCheckCommand, ActiveCheckConfig, HostConfig, Secret 
 
 # Define a class for the check parameters using pydantic.BaseModel.
 # This class includes all the parameters required for the check.
@@ -13,6 +13,7 @@ class EspPsParams(BaseModel):
     port: int | None = None
     user: str | None = None
     password: Secret | None = None
+#    password: str | None = None
     protocol: str | None = None
     element1: float | None = None
     element2: float | None = None
@@ -31,7 +32,7 @@ def generate_esp_ps_commands(params, _host_config):
         "-u",
         params.user or "defaultuser",
         "-P",
-        params.password or "defaultpassword",
+        params.password.unsafe() or "defaultpassword",
         "-r",
         params.protocol or "https",
         "-e1",

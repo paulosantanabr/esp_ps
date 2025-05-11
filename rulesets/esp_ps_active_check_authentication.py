@@ -9,7 +9,7 @@
 # AI Context: Checkmk is a monitoring tool that helps organizations identify and resolve issues in their IT infrastructure. This script is an example of a structured ruleset implementation in Checkmk, covering parameters, authentication, and external integrations.
 
 # Import necessary modules from Checkmk's rulesets
-from cmk.rulesets.v1.form_specs import DefaultValue, Dictionary, DictElement, String, Password
+from cmk.rulesets.v1.form_specs import DefaultValue, Dictionary, DictElement,migrate_to_password, String, Password
 from cmk.rulesets.v1.rule_specs import ActiveCheck, Topic, Help, Title
 
 # Define the form specification function
@@ -40,6 +40,7 @@ def _formspec():
                 required=False,
                 parameter_form=Password(
                     title=Title("Password"),
+                    migrate=migrate_to_password,
                     help_text=Help("Define the password. Variable Name: password \ Required: True \ cmk.rulesets.v1.form_specs: Password"),
                 ),
 			),
@@ -50,7 +51,7 @@ def _formspec():
 rule_spec_esp_ps_active_check_authentication = ActiveCheck(
     topic=Topic.APPLICATIONS,
     name="esp_ps_active_check_authentication",
-    title=Title("Extension Starter Pack - ActiveCheck - Authentication"),
+    title=Title("ESP - ActiveCheck - Authentication"),
     help_text=Help("A structured example to help users write and implement rulesets in Checkmk, covering parameters, authentication, and external integrations."),
     parameter_form=_formspec
 )

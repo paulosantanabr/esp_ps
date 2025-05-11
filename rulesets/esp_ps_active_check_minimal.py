@@ -41,7 +41,7 @@ def _formspec():
 rule_spec_esp_ps_active_check_minimal = ActiveCheck(
     topic=Topic.APPLICATIONS,
     name="esp_ps_active_check_minimal",
-    title=Title("Extension Starter Pack - ActiveCheck - Minimal"),
+    title=Title("ESP - ActiveCheck - Minimal"),
     help_text=Help("A structured example to help users write and implement rulesets in Checkmk, covering parameters, authentication, and external integrations."),
     parameter_form=_formspec
 )

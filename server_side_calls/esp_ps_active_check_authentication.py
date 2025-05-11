@@ -21,7 +21,7 @@ def generate_esp_ps_commands(params, _host_config):
         "-u",
         params.user or "defaultuser",
         "-p",
-        params.password or "defaultpassword",
+        params.password.unsafe() or "defaultpassword",
     )
 
     # Yield an ActiveCheckCommand with the service description and command arguments.

@@ -96,6 +96,6 @@ def _formspec():
 rule_spec_esp_ps_special_agent = SpecialAgent(
     topic=Topic.APPLICATIONS,
     name="check_esp_ps",
-    title=Title("Extension Starter Pack by Paulo Santana - Special"),
+    title=Title("ESP - Special Agent"),
     parameter_form=_formspec
 )
