@@ -23,7 +23,7 @@ def _formspec():
                 parameter_form=String(
                     title=Title("Service Name"),
                     help_text=Help("Define the name. Any value is allowed in here. Variable Name: service_description \ required=True \ parameter_form=String \ prefill=DefaultValue(Extension Starter Pack - Active Check - Minimal)"),
-                    prefill=DefaultValue("Extension Starter Pack - Active Check - Authentication"),
+                    prefill=DefaultValue("ESP - Active Check - Authentication"),
                 ),
             ),
           # Define a required string parameter named 'user' with a default value

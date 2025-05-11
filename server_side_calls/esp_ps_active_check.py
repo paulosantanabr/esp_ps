@@ -14,7 +14,8 @@ class EspPsParams(BaseModel):
     user: str | None = None
     password: Secret | None = None
 #    password: str | None = None
-    protocol: str | None = None
+    protocol: tuple[str, str | None] = ("https", None)
+#    protocol: str | None = None
     element1: float | None = None
     element2: float | None = None
     state: str | None = None
@@ -32,9 +33,9 @@ def generate_esp_ps_commands(params, _host_config):
         "-u",
         params.user or "defaultuser",
         "-P",
-        params.password.unsafe() or "defaultpassword",
+        params.password.unsafe() if params.password is not None else "defaultpassword",
         "-r",
-        params.protocol or "https",
+        params.protocol[0] or "https",
         "-e1",
         f"{params.element1 or 0.0}",
         "-e2",

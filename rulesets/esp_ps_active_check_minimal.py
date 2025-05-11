@@ -23,7 +23,7 @@ def _formspec():
                 parameter_form=String(
                     title=Title("Service Name"),
                     help_text=Help("Define the name that will be used in the Active Check. Any value is allowed in here. Variable Name: service_description \ required=True \ parameter_form=String \ prefill=DefaultValue(Extension Starter Pack - Active Check - Minimal)"),
-                    prefill=DefaultValue("Extension Starter Pack - Active Check - Minimal"),
+                    prefill=DefaultValue("ESP - Active Check - Minimal"),
                 ),
             ),
             "state": DictElement(

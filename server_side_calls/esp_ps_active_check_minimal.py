@@ -1,10 +1,9 @@
-
 # This script defines the configuration for an active check in Checkmk.
 # It includes parameter parsing and command generation for the ESP PS active check.
 
 from collections.abc import Iterator, Sequence
 from pydantic import BaseModel
-from cmk.server_side_calls.v1 import ActiveCheckCommand, ActiveCheckConfig, HostConfig, Secret
+from cmk.server_side_calls.v1 import ActiveCheckCommand, ActiveCheckConfig, HostConfig, Secret 
 
 # Define a class for the check parameters using pydantic.BaseModel.
 # This class includes all the parameters required for the check.

@@ -138,8 +138,12 @@ It is available when selecting **Show More**.
 
 1.0.0
 - Added Perfometer into **"Extension Starter Pack - ActiveCheck - Custom Metrics"**
-- 
+
 1.1.0
 - Fixed issues with password
-- Renamed rulesets from Extenstion Started Pack to ESP
+- Renamed rulesets from Extenstion Starter Pack to ESP
 
+1.2.0
+- Renamed service descriptions from Extension Starter Pack to ESP
+- Fixed issue with server_side_calls to read protocol information from ruleset
+- Improved ESP - Active Check - All in One libexec script to improve the output

@@ -13,7 +13,7 @@ def parse_metric_string(metric_str: str) -> tuple[int, int, int]:
 
 # Define the parameters that will come from the rule
 class CustomMetricParams(BaseModel):
-    service_description: str | None = "	Extension Starter Pack - Active Check - Custom Metrics"
+    service_description: str | None = "ESP - Active Check - Custom Metrics"
     brown_dog: str | None = None
     green_cat: str | None = None
     blue_bird: str | None = None

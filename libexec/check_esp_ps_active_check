@@ -22,7 +22,7 @@ def usage():
     element1        : First element
     element2        : Second element
     state           : State of the check (OK, WARN, CRIT, UNK); default: OK
-    servicename     : Name of the service; default: "Extension Starter Pack by Paulo Santana - Active Check"
+    servicename     : Name of the service; default: "Extension Starter Pack by Paulo Santana - Active Check - Minimal"
 
     Examples:
     1. python {os.path.basename(__file__)} -H example.com -u admin -P secret -r https -e1 1.23 -e2 4.56 -s OK -n "Service Check"
@@ -40,7 +40,7 @@ def main(argv):
     element1 = 'Not provided'
     element2 = 'Not provided'
     state = 'OK'
-    servicename = "Extension Starter Pack by Paulo Santana - Active Check"
+    servicename = "Active Check - Minimal"
 
     try:
         opts, args = getopt.getopt(argv, "hH:p:u:P:r:e1:e2:s:n:", ["help", "hostname=", "port=", "user=", "password=", "protocol=", "element1=", "element2=", "state=", "servicename="])
@@ -85,7 +85,7 @@ def main(argv):
         print("Invalid state provided. Valid states are: OK, WARN, CRIT, UNK.")
         sys.exit(3)
 
-    print(f'{status_code} "{servicename}" - {current_output}')
+    print(f'{current_output}')
 
     sys.exit(status_code)
 

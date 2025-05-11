@@ -22,7 +22,7 @@ def _formspec():
                 required=True,
                 parameter_form=String(
                     title=Title("Service Name"),
-                    prefill=DefaultValue("Extension Starter Pack by Paulo Santana - Active Check"),
+                    prefill=DefaultValue("ESP - Active Check - All in One"),
                 ),
             ),
             # Define a required floating-point parameter named 'element1'
