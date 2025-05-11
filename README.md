@@ -138,3 +138,8 @@ It is available when selecting **Show More**.
 
 1.0.0
 - Added Perfometer into **"Extension Starter Pack - ActiveCheck - Custom Metrics"**
+- 
+1.1.0
+- Fixed issues with password
+- Renamed rulesets from Extenstion Started Pack to ESP
+
