@@ -1,0 +1,143 @@
+Script
+
+Apache Guacamole Details
+
+	192.168.0.179
+	guacadmin
+	guacadmin
+	8080
+	mysql	
+
+Swicth the Chat to Agent Mofr
+
+# Prompt 01 - Create Folder Structure
+
+We will create an extension for Apache Guacamole to read the amount of active connections. Create a folder called apacheguacamole and add the following subfolders: libexec, rulesets, server_side_calls, and checkman.
+
+
+# Prompt 02 - Create Monitoring Script
+
+Create a Python script for a Checkmk local check that monitors Apache Guacamole active sessions.
+
+Requirements:
+
+1. Script Location and Name:
+    - Create the script in the `libexec` directory
+    - Name: check_guacamole_active_check
+    - Make it executable
+    - Use Python 3 shebang
+2. Required Libraries:
+    - Use only standard libraries and 'requests'
+    - Handle SSL certificate verification warnings
+3. Command Line Arguments (using argparse):
+Required:
+    - -username : Guacamole admin username
+    - -password : Guacamole admin password
+    - -host : Guacamole server hostname/IP
+    
+    Optional:
+    
+    - -protocol : Connection protocol (http/https, default: http)
+    - -port : Server port number (optional)
+    - -data-source : Guacamole data source (default: mysql)
+    - -uri : Base URI path (default: /guacamole)
+4. API Integration:
+    - Authenticate using Guacamole's REST API (/api/tokens endpoint)
+    - Use form data for authentication (not JSON)
+    - Get active sessions from /api/session/data/mysql/activeConnections
+    - Handle the auth token in subsequent requests
+5. Error Handling:
+    - Handle connection errors
+    - Handle authentication failures
+    - Handle API response errors
+    - Exit with non-zero status on errors
+    - Print descriptive error messages
+6. Output Format (Checkmk):
+Success:
+    - Print: "Apache Guacamole Active Sessions: <count> | active_sessions=<count>"
+    - Exit code: 0
+    
+    Error:
+    
+    - Print: "Error: <error_message>"
+    - Exit code: 1
+7. URL Handling:
+    - Normalize URI paths (handle with/without leading slash)
+    - Properly construct URLs with optional port numbers
+    - Use proper URL joining for API endpoints
+
+Example usage:
+./check_guacamole_sessions --username guacadmin --password guacadmin --host 192.168.0.179 --port 8080 --data-source mysql --uri guacamole
+
+The script should follow best practices for:
+
+- Code organization (functions for auth and session retrieval)
+- Error handling
+- URL construction
+- Command line argument parsing
+- Checkmk local check output formatting
+
+# Prompt 03 - Test 
+
+Let's test it with the following parameters:
+
+	192.168.0.179
+	guacadmin
+	guacadmin
+	8080
+	mysql	
+
+# Prompt 04 - Create the ruleset
+
+Create a Checkmk ruleset file for monitoring Apache Guacamole active sessions.
+
+The file esp_ps_active_check.py will be provided as a reference. Use it as a template and modify it for Guacamole monitoring by:
+
+1. Updating the title and help text to reference Apache Guacamole
+2. Modifying the parameters to include:
+    - Username (default: guacadmin)
+    - Password
+    - Hostname/IP (default: $HOSTADDRESS$)
+    - Port (default: 8080)
+    - Protocol (http/https)
+    - Data source (default: mysql)
+    - Base URI (default: /guacamole)
+3. Remove any parameters not needed for Guacamole monitoring
+4. Keep the same structure and patterns as the reference file
+
+# Prompt 05 - Restart apache to load the new ruleset
+
+Restart apache to load the new ruleset
+
+# Prompt 06 - Create the Server Side Call
+
+Create a Checkmk server_side_calls file for monitoring Apache Guacamole active sessions.
+
+File Location:
+
+- Create in: plugins/apacheguacamole/server_side_calls/guacamole_active_check.py
+
+The following files will be provided as references:
+
+1. esp_ps_active_check.py (rulesets)
+2. esp_ps_active_check.py (server_side_calls)
+
+Use these files as templates and modify them for Guacamole monitoring by:
+
+1. In the server_side_calls file:
+    - Update the parameter class name to GuacamoleParams
+    - Modify parameters to match Guacamole requirements
+    - Update command generation to use correct argument names
+    - Set appropriate default values for Guacamole
+2. Keep the same structure and patterns as the reference files
+3. Ensure the server_side_calls file matches the parameters defined in the ruleset file
+
+# Prompt 07 - Restart apache to load the new configuration
+
+Restart apache to load the new configuration
+
+# Create the host
+
+# Create the ruleset
+
+# Activate connections in Apache Guacamole
